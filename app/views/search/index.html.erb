@@ -1,0 +1,14 @@
+<h1>Resultados para "<%= @query %>"</h1>
+
+<% if @results.present? %>
+  <ul>
+    <% @results.each do |ad| %>
+      <li>
+        <h2><%= link_to ad.title, ad_path(ad) %></h2>
+        <p><%= ad.description.truncate(100) %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhum resultado encontrado.</p>
+<% end %>

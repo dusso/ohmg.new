@@ -1,0 +1,14 @@
+<h1>Meus Anúncios</h1>
+
+<% @ads.each do |ad| %>
+  <div class="ad">
+    <h3><%= ad.title %></h3>
+    <p><%= ad.description %></p>
+    <p><strong>Preço:</strong> <%= ad.price %></p>
+    <%= link_to 'Ver Detalhes', ad_path(ad) %> |
+    <%= link_to 'Editar', edit_ad_path(ad) %> |
+    <%= link_to 'Excluir', ad_path(ad), method: :delete, data: { confirm: 'Tem certeza?' } %>
+  </div>
+<% end %>
+
+<%= link_to 'Criar Novo Anúncio', new_ad_path %>

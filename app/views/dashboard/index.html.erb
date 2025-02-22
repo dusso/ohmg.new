@@ -1,0 +1,18 @@
+<h1>Bem-vindo ao seu painel de controle, <%= current_user.name %>!</h1>
+
+<p>Aqui você pode gerenciar suas informações e anúncios.</p>
+
+<div class="dashboard-actions">
+  <h2>Ações</h2>
+  <ul>
+    <li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>
+    <li><%= link_to 'Meus Anúncios', ads_path %></li>
+    <li><%= link_to 'Criar Novo Anúncio', new_ad_path %></li>
+  </ul>
+</div>
+
+<div class="dashboard-info">
+  <h2>Informações do Usuário</h2>
+  <p><strong>Email:</strong> <%= current_user.email %></p>
+  <p><strong>Data de Cadastro:</strong> <%= current_user.created_at.strftime('%d/%m/%Y') %></p>
+</div>
