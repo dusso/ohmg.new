@@ -1,12 +1,23 @@
-<h1>Home</h1>
-<p><%= render 'shared/search_form' %></p>
+<%#= render  "components/header/main" %>
 
-<p>Vender</p>
+<div class="container-fluid">
 <p>icone de login, e dentro dele: login, se inscrever e help center</p>
 
-<p><%= link_to "mocas", main_category_path, class: "btn btn-primary" %></p>
-<p><%= link_to "rapazes", main_category_path, class: "btn btn-primary" %></p>
-<p><%= link_to "criancas", main_category_path, class: "btn btn-primary" %></p>
-<p><%= link_to "outros", main_category_path, class: "btn btn-primary" %></p>
+</div>
+<p><%= render 'shared/search_form' %></p>
 
-<button class="btn btn-primary">Testar Bootstrap</button>
+<p><%= link_to "vender", main_category_path, class: "btn btn-primary" %></p>
+
+<% if user_signed_in? %>
+  <%= link_to 'Vender', new_product_path, class: 'btn btn-primary' %>
+<% else %>
+  <%= link_to 'login', new_user_session_path, class: 'btn btn-warning' %>
+<% end %>
+
+
+<div class="container-fluid d-flex">
+  <p><%= link_to "mocas", main_category_path, class: "btn btn-primary" %></p>
+  <p><%= link_to "rapazes", main_category_path, class: "btn btn-primary" %></p>
+  <p><%= link_to "criancas", main_category_path, class: "btn btn-primary" %></p>
+  <p><%= link_to "outros", main_category_path, class: "btn btn-primary" %></p>
+</div>
