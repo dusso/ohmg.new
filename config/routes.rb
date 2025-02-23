@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   get 'search/index'
   get 'categories/show'
+  get 'login', to: 'sessions#new', as: :login
+  get 'logout', to: 'sessions#destroy', as: :logout
+  get 'signup', to: 'users#new', as: :signup
+  get 'help_center', to: 'pages#help_center', as: :help_center
+
   # Define a página inicial como Home
   root to: 'home#index'
 

@@ -1,31 +1,39 @@
 <%#= render  "components/header/main" %>
 
-<div class="container-fluid">
-<p>icone de login, e dentro dele: login, se inscrever e help center</p>
+<div class="flex d-flex p-1">
+  <p>LOGO</p>
+
+  <% if user_signed_in? %>
+    <%= link_to 'Vender', new_product_path, class: 'btn btn-success' %>
+  <% else %>
+    <%= link_to 'Login para Cadastrar Produto', new_user_session_path(request.fullpath), class: 'btn btn-primary' %>
+  <% end %>
+  
+  <%= render 'components/menu_dropdown' %>
 
 </div>
+
+
+
 <p><%= render 'shared/search_form' %></p>
 
 
 
-<% if user_signed_in? %>
-  <%= link_to 'Vender', new_product_path, class: 'btn btn-success' %>
-<% else %>
-  <%= link_to 'Login para Cadastrar Produto', new_user_session_path(request.fullpath), class: 'btn btn-primary' %>
-<% end %>
+<div class="container-fluid d-flex flex-column">
 
+  <div class="flex d-flex">
+    <p>Shop by Category</p>
+    <p>See All</p>
+  </div>
 
-<% if user_signed_in? %>
-  <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
-<% else %>
-  <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
-<% end %>
+  <div class="flex d-flex">
+    <p><%= link_to "mocas", main_category_path, class: "btn btn-primary" %></p>
+    <p><%= link_to "rapazes", main_category_path, class: "btn btn-primary" %></p>
+    <p><%= link_to "criancas", main_category_path, class: "btn btn-primary" %></p>
+    <p><%= link_to "outros", main_category_path, class: "btn btn-primary" %></p>
+  </div>
 
+  <h4>BUY & SELL</h4>
+  <h5>second hand</h5>
 
-
-<div class="container-fluid d-flex">
-  <p><%= link_to "mocas", main_category_path, class: "btn btn-primary" %></p>
-  <p><%= link_to "rapazes", main_category_path, class: "btn btn-primary" %></p>
-  <p><%= link_to "criancas", main_category_path, class: "btn btn-primary" %></p>
-  <p><%= link_to "outros", main_category_path, class: "btn btn-primary" %></p>
 </div>

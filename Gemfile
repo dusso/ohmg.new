@@ -28,7 +28,7 @@ gem "jbuilder"
 
 gem 'devise'
 
-gem 'bootstrap', '~> 5.0'
+gem 'bootstrap', '~> 5.3.3'
 
 
 gem 'sassc-rails', require: false
