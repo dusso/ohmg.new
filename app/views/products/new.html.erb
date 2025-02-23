@@ -1,0 +1,25 @@
+<h1>Criar Novo Produto</h1>
+
+<%= form_with model: @product, local: true do |form| %>
+  <% if @product.errors.any? %>
+    <div>
+      <h2>Erros:</h2>
+      <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, "Nome do Produto" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit "Criar Produto" %>
+  </div>
+<% end %>
+
+<%= link_to 'Voltar', products_path %>

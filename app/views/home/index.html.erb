@@ -6,13 +6,21 @@
 </div>
 <p><%= render 'shared/search_form' %></p>
 
-<p><%= link_to "vender", main_category_path, class: "btn btn-primary" %></p>
+
 
 <% if user_signed_in? %>
-  <%= link_to 'Vender', new_product_path, class: 'btn btn-primary' %>
+  <%= link_to 'Vender', new_product_path, class: 'btn btn-success' %>
 <% else %>
-  <%= link_to 'login', new_user_session_path, class: 'btn btn-warning' %>
+  <%= link_to 'Login para Cadastrar Produto', new_user_session_path(request.fullpath), class: 'btn btn-primary' %>
 <% end %>
+
+
+<% if user_signed_in? %>
+  <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
+<% end %>
+
 
 
 <div class="container-fluid d-flex">
