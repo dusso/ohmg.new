@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   # Rotas para os anúncios
   resources :ads
+  resources :products
+
 
   # Rotas do Devise para autenticação de usuários
   devise_for :users
